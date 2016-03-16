@@ -46,7 +46,7 @@ Medida.convertir = function(valor) {
       return source[target]().toFixed(2) + " "+measures[destino].name;          // "0 Celsius"
     }
     catch(err) {
-      console.log(err);
+      console.log('Desconozco como convertir desde "'+tipo+'" hasta "'+destino+'"');
       return 'Desconozco como convertir desde "'+tipo+'" hasta "'+destino+'"';
     }
   }
