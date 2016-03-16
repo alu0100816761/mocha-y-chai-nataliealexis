@@ -18,8 +18,14 @@ describe("Clase Medida", function () {
       expect(parseFloat(valor.val)).to.equal(330e-1);
       expect(valor.tip).to.equal('f');
       expect(valor.para).to.equal('c');
-    })
-  })
+    });
+  });
+  describe("funcion convertir", function () {
+    it("deberia convertir correctamente", function() {
+      var conv = Medida.convertir('320e-1 f to c');
+      expect(conv).to.equal('0.00 Celsius');
+    });
+  });
 });
 
 describe("Clase Temperatura", function () {
