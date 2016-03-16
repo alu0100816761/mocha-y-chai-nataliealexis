@@ -12,6 +12,14 @@ describe("Clase Medida", function () {
       expect(medida.tipo).to.equal('f');
     });
   });
+  describe("funcion match", function () {
+    it("debería cazar bien", function () {
+      var valor = Medida.match('330e-1 f to c');
+      expect(parseFloat(valor.val)).to.equal(330e-1);
+      expect(valor.tip).to.equal('f');
+      expect(valor.para).to.equal('c');
+    })
+  })
 });
 
 describe("Clase Temperatura", function () {
