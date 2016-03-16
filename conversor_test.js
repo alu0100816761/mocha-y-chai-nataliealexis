@@ -65,3 +65,22 @@ describe("Clase Celsius", function () {
     });
   });
 });
+
+describe("Clase Kelvin", function () {
+  describe("constructor kelvin", function () {
+    it("deberia tener un constructor", function () {
+      var kel = new Kelvin (880e-1);
+      expect(kel.valor).to.equal(880e-1);
+    });
+  });
+  describe("funciones de kelvin", function () {
+    it("debe convertir a celsius", function () {
+      var kel = new Kelvin (880e-1);
+      expect(parseFloat(kel.toCelsius().toFixed(2))).to.equal(-185.15);
+    });
+    it("debe convertir a fahrenheit", function () {
+      var kel = new Kelvin (880e-1);
+      expect(parseFloat(kel.toFahrenheit().toFixed(2))).to.equal(-301.27);
+    });
+  });
+});
