@@ -1,6 +1,19 @@
 var expect = chai.expect;
 
 describe("Clase Medida", function () {
+
+  var sandbox;
+
+  beforeEach(function() {
+    sandbox = sinon.sandbox.create();
+    sandbox.stub(window.console, "log");
+    sandbox.stub(window.console, "error");
+  });
+
+  afterEach(function() {
+    sandbox.restore();
+  });
+
   describe("constructor medida", function() {
     it("deberia tener un constructor", function() {
       var medida = new Medida (32, 'f');
@@ -24,6 +37,12 @@ describe("Clase Medida", function () {
     it("deberia convertir correctamente", function() {
       var conv = Medida.convertir('320e-1 f to c');
       expect(conv).to.equal('0.00 Celsius');
+    });
+    it("deberia mostrar por un log si desconoce la conversion", function() {
+      var conv = Medida.convertir('320e-1 f to p');
+      sinon.assert.notCalled(console.error);
+      sinon.assert.calledOnce(console.log);
+      sinon.assert.calledWithExactly(console.log, 'Desconozco como convertir desde "f" hasta "p"');
     });
   });
 });
