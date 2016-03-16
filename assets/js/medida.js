@@ -3,7 +3,7 @@ function Medida (valor,tipo)
     var regexp = /^\s*([-+]?\d+(?:\.\d*)?(?:e[-+]?\d+)?)\s*([a-zA-Z])\s*$/i;
     var val = regexp.exec(valor);
     if (val) {
-      this.valor = val[1];
+      this.valor = parseFloat(val[1]);
       this.tipo = val[2];
     } else {
       this.valor = valor;
